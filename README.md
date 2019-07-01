@@ -2,7 +2,7 @@
 An R Package which models the range of probability of illnesses from swimming in a sewage impacted water body.
 
 # Introduction
-`QMRAswim` is an R package which models the range of probability of illnesses from swimming in a sewage-impacted water body. The inputs include the measured concentration of the indicator organism and the desired reference values, and the output is the probability of illness from pathogens. The package can be used along with a Shiny web-based tool that can be found <https://qmraswim.shinyapps.io/qmraswim/>.
+`QMRAswim` is an R package which models the range of probability of illnesses from swimming in a sewage-impacted water body. The inputs include the measured concentration of the indicator organism and the desired reference values, and the output is the probability of illness from pathogens. The package can be used along with a Shiny web-based tool that being developed. 
 
 More references will be included in future developments of the package.
 
