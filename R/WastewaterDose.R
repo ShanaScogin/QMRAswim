@@ -1,52 +1,32 @@
 
-#needed inputs:
-
-###indicator conc range in wastewater
-###indicator conc in environmental water
-###pathogen concentration range in wastewater
-###pathogen dose response function and parameters
-###fraction of illnesses given infection for pathogen
-
-
-
-WastewaterDose<-function(seed =1,count,min,max,indicatorconc){
-  set.seed(seed)#randomness
-  indicatorrange<-runif(count,min=b,max=c)
-  waterdose<-rlnorm(count,meanlog=2.92,sdlog=1.43) ###exposure volume while swimming event occurs
-  WWfrac<-indicatorconc/(10^indicatorrange)
-  WWdose<-waterdose/1000*WWfrac
-  }
-PathogenDose<-function(low,high,doseresp="f1",alpha,beta=0,frac){### low high log conc/L in wastewater pathogen,doseresp can be 1 of 3, alpha beta are dose response parameters, frac is fraction of people who are infected who get sick ect.
-  a1<-runif(count,low,high)
-  e1<-WWdose*10^a1
-  if (doseresp="f1") {
-    pi1<- f1(alpha,e1)
-  } else{
-    if (doseresp="f2") {
-      pi1<- f2(alpha, beta, e1)
-    }
+#' @title Dose of Wastewater
+#' @description Calculate how much wastewater a swimmer is exposed to based on a single indicator concentration value. Water dose is from "Water ingestion during swimming activities in a pool: a pilot study", lognormal distribution with a mean of 2.92 and a standard deviation of 1.43 (Dufor et al. 2006).
+#' @param indic_enviro_conc The concentration of the indicator in environmental waters-the dependent variable in log10 Copies/L
+#' @param indic_sewage_dist Which distribution, log uniform: \code{'lunif'}  or log normal: \code{'lnorm'} the indicator concentration in sewage follows.
+#' @param i_alpha First value for distrubution, if lunif, alpha is the min concentration, for lnorm it is the alpha value.
+#' @param i_beta Second value for distribution, if lunif, beta is the max concentration, for lnorm it is the beta value.
+#' @param seed Optional paramter. Sets the seed of R's random number generator, which is useful for creating simulations that can be reproduced. Default is 1
+#' @param count Optional parameter. How many Monte Carlo samplings. Default is 10,000
+#' @return Wastewater dose, \code{WWdose}, in Liters. Vector contains  \code{count} number of samplings.
+#' @export
+WastewaterDose<-function(indic_enviro_conc, indic_sewage_dist='lunif',i_alpha,i_beta,seed =1,count=10000){
+  count<<-count
+  set.seed(seed)
+  if (indic_sewage_dist== 'lunif'){
+    Ci_Sew<<-runif(count,min=i_alpha,max=i_beta)
   } else {
-    if (doseresp="f3") {
-      pi1<- f3(alpha, beta, e1)
+    if (indic_sewage_dist == 'lnorm'){
+      Ci_Sew<<-rlnorm(count,i_alpha,i_beta)
+    } else {
+      stop("Invalid entry for indic_sewage_dist distribution, must be either 'lunif' or 'lnorm'")
     }
-  } else{
-    print("Invalid entry for doseresp")
   }
-  pill1<-pi1*frac
+  EnvWaterDose<<-(rlnorm(count,meanlog = 2.92,sdlog = 1.43))
+  fractionWW<<-(indic_enviro_conc/10^Ci_Sew)
+  WWdose<<-(EnvWaterDose/1000*(fractionWW))###exposure volume while swimming event occurs in mL changed to L/indicator concentration changed divided by the range of concentration in sewage
 }
 
-###To calculate probability of infection, use the formula 1-((1-pathogena)*(1-pathogenb)*(1-pathogenc)...)
-####probability of infection
-f1<-function(x,N){ ##single parameter exponential
-  1-exp(-x*N)
-}
-f2<-function(a,b,N){##two parameter beta-poisson
-  1-(1+N/a)^-b
-}
-f3<-function(a,b,N){###hypergeometric from packageCharFun
-  1- hypergeom1F1(-N,a,b)
-}
 
-###Total probability of illness
-#pill<-1-((1-pill1)*(1-pill2)*(1-pill3)*(1-pill4))
+
+
 
