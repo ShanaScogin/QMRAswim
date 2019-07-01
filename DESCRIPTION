@@ -1,0 +1,12 @@
+Package: QMRAswim
+Title: Models the Range of Probability of Illnesses from Wwimming in a Sewage-Impacted Water Body
+Version: 0.0.0.9000
+Authors@R: person("Katherine", "Crank", email = "kcrank@nd.edu", role = c("aut")), person("Shana", "Scogin", email = "shanarscogin@gmail.com", role = c("aut", "cre")), person("Kyle", "Bibby", role = c("aut")) 
+Maintainer: Shana Scogin <shanarscogin@gmail.com>
+Description: An implementation of a tool to model the range of probability of illnesses from swimming in a sewage-impacted water body. The inputs include the measured concentration of the indicator organism and the desired reference values, and the output is the probability of illness from pathogens.
+Depends: R (>= 3.6.0)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    testthat
