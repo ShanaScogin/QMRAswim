@@ -26,7 +26,8 @@
 #' for \code{'lnorm'} it is the standard deviation in log 10 units.
 #' @param dose Returned dose from Wastewater Dose function. Defaults to WWdose
 #' @return Probability of illness \code{pill1}. Vector contains \code{count} number 
-#' of samplings. To calculate illness from \code{n} number of pathogens, use the formula totpill=1-((1-pill1)(1-pill2)(1-pill3)(1-pill4)...)
+#' of samplings. To calculate illness from \code{n} number of pathogens, use the formula 
+#' totpill=1-((1-pill1)(1-pill2)(1-pill3)(1-pill4)...)
 #' @export
 #' @examples
 #' \dontrun{
