@@ -16,7 +16,7 @@ install.packages("devtools")
 Now we can install from GitHub with the following line:
 
 ```
-devtools::install_github("ShanaScogin/QMRAswim")
+devtools::install_github("kcrank1/QMRAswim")
 ```
 
 Once you have installed the package, you can access it by calling:
