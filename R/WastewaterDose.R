@@ -30,20 +30,20 @@ WastewaterDose <- function(indic_enviro_conc,
                            i_beta,
                            seed = 1,
                            count = 10000){
-  count <<- count
+  count <- count
   set.seed(seed)
   if (indic_sewage_dist == 'lunif'){
-    Ci_Sew <<- runif(count, min=i_alpha, max=i_beta)
+    Ci_Sew <- runif(count, min=i_alpha, max=i_beta)
   } else {
     if (indic_sewage_dist == 'lnorm'){
-      Ci_Sew <<- rlnorm(count, i_alpha, i_beta)
+      Ci_Sew <- rlnorm(count, i_alpha, i_beta)
     } else {
       stop("Invalid entry for indic_sewage_dist distribution, must be either 'lunif' or 'lnorm'")
     }
   }
-  EnvWaterDose <<-(rlnorm(count,meanlog = 2.92, sdlog = 1.43))
-  fractionWW <<-(indic_enviro_conc / 10 ^ Ci_Sew)
-  WWdose <<-(EnvWaterDose / 1000 * (fractionWW)) 
+  EnvWaterDose <-(rlnorm(count,meanlog = 2.92, sdlog = 1.43))
+  fractionWW <-(indic_enviro_conc / 10 ^ Ci_Sew)
+  WWdose <-(EnvWaterDose / 1000 * (fractionWW)) 
   ###exposure volume while swimming event occurs in mL changed to L/indicator 
   ###concentration changed divided by the range of concentration in sewage
 }

@@ -3,13 +3,13 @@
 #' @title  Probability of illness from exposure to wastewater
 #' @description Calculates the probability of illness for a specific pathogen based 
 #' the amount of wastewater consumed during the swimming event
-#' @param doseresp Choose which dose response model to use. Type \code{"ex"} for single 
+#' @param doseresp The dose response model being used. Type \code{"exp"} for single 
 #' parameter exponential, \code{"bp"} for two parameter beta-poisson, or \code{"f1"} for 
 #' the two parameter hypergeometric1F1, commonly used for norovirus
 #' @param alpha First parameter for the dose response
 #' @param beta Second parameter for the dose response. Leave blank if using single 
 #' paramter exponential dose response
-#' @param Pillinf The fraction of infections that become illnesses. 
+#' @param Pillinf The fraction of infections that become illnesses 
 #' If Pillinf is a distribution not a single value, use the function Fraction to 
 #' generate a monte carlo table. Can be a single value or a monte carlo vector 
 #' generated from the \code{frac} function. P _ill/inf The probability of illness 
@@ -33,19 +33,30 @@
 #' \dontrun{
 #'}
 
-PathogenDose <- function(doseresp = 'f1',
+# Noro
+# p_alpha[3] 
+# p_beta[6] 
+# alpha[0.04]
+# beta[0.095]
+# pillinf [.6]
+
+
+PathogenDose <- function(doseresp = "exp",
                          alpha,
                          beta = 0,
                          Pillinf,
-                         path_sewage_dist='lunif',
+                         path_sewage_dist = 'lunif',
                          p_alpha,
                          p_beta,
-                         dose = WWdose){
+                         dose){
+  
   ### low high log conc/L in wastewater pathogen,doseresp can be 1 of 3, alpha beta 
   ### are dose response parameters, frac is fraction of people who are infected who 
   ### get sick ect.
   
-  dose <- WWdose
+  ## Arguments
+  count <- length(dose)
+  
   if (path_sewage_dist == 'lunif'){
     Cp_Sew <- log(runif(count, min = p_alpha, max = p_beta))
   } else if (path_sewage_dist == 'lnorm'){
@@ -53,17 +64,17 @@ PathogenDose <- function(doseresp = 'f1',
   }  else {
     stop("Invalid entry distribution, must be either 'lunif' or 'lnorm'")
   }
-  e1 <<- WWdose * 10 ^ Cp_Sew
-  if (doseresp == 'ex')  {
-    pi1 <<- fu1(alpha,e1)
+  e1 <- dose * 10 ^ Cp_Sew
+  if (doseresp == 'exp')  {
+    pi1 <- fu1(alpha, e1)
   } else if (doseresp=='bp') {
-    pi1 <<- f2(alpha, beta, e1)
+    pi1 <- f2(alpha, beta, e1)
   } else if (doseresp=='f1') {
-    pi1 <<- f3(alpha, beta, e1)
+    pi1 <- f3(alpha, beta, e1)
   }  else {
     stop("Invalid entry for doseresp")
   }
-  pill1 <<- pi1 * Pillinf
+  pill1 <- pi1 * Pillinf
   return(pill1)
 }
 
@@ -82,3 +93,4 @@ f3 <- function(a, b, N){ ##hypergeometric from packageCharFun
 ###Total probability of illness
 ###totpill<-1-((1-pill1)*(1-pill2)*(1-pill3)*(1-pill4))
 
+# PathogenDose(p_alpha = 3, p_beta = 6, alpha = 0.04, beta = 0.095, Pillinf = .6, dose = rnorm(10000, 0, 1))
