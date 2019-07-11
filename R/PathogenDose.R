@@ -67,9 +67,9 @@ PathogenDose <- function(doseresp = "exp",
   e1 <- dose * 10 ^ Cp_Sew
   if (doseresp == 'exp')  {
     pi1 <- fu1(alpha, e1)
-  } else if (doseresp=='bp') {
+  } else if (doseresp =='bp') {
     pi1 <- f2(alpha, beta, e1)
-  } else if (doseresp=='f1') {
+  } else if (doseresp =='f1') {
     pi1 <- f3(alpha, beta, e1)
   }  else {
     stop("Invalid entry for doseresp")

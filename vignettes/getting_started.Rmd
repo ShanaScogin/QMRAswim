@@ -1,0 +1,20 @@
+---
+title: "Getting Started with QMRAswim"
+author: "Katherine Crank, Shana Scogin"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{getting_started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+`QMRAswim` is an implementation of a tool to model the range of probability of illnesses from swimming in a sewage-impacted water body. The inputs include the measured concentration of the indicator organism and the desired reference values, and the output is the probability of illness from pathogens.
