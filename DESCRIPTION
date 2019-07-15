@@ -7,5 +7,7 @@ Description: An implementation of a tool to model the range of probability of il
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Imports:
+    BAS
 Suggests: 
     testthat

@@ -15,7 +15,7 @@
 #' @param i_beta Second value for distribution, if lunif, beta is the max concentration, 
 #' for lnorm it is the beta value.
 #' @param seed Optional paramter. Sets the seed of R's random number generator, which 
-#' is useful for creating simulations that can be reproduced. Default is 1
+#' is useful for creating simulations that can be reproduced. Default is 123
 #' @param count Optional parameter. How many Monte Carlo samplings. Default is 10,000
 #' @return Wastewater dose, \code{WWdose}, in Liters. Vector contains  \code{count} 
 #' number of samplings.
@@ -28,7 +28,7 @@ WastewaterDose <- function(indic_enviro_conc,
                            indic_sewage_dist = 'lunif',
                            i_alpha,
                            i_beta,
-                           seed = 1,
+                           seed = 123,
                            count = 10000){
   count <- count
   set.seed(seed)
@@ -41,7 +41,7 @@ WastewaterDose <- function(indic_enviro_conc,
       stop("Invalid entry for indic_sewage_dist distribution, must be either 'lunif' or 'lnorm'")
     }
   }
-  EnvWaterDose <-(rlnorm(count,meanlog = 2.92, sdlog = 1.43))
+  EnvWaterDose <-(rlnorm(count, meanlog = 2.92, sdlog = 1.43))
   fractionWW <-(indic_enviro_conc / 10 ^ Ci_Sew)
   WWdose <-(EnvWaterDose / 1000 * (fractionWW)) 
   ###exposure volume while swimming event occurs in mL changed to L/indicator 

@@ -1,5 +1,5 @@
-# QMRAswim[![Build Status](https://travis-ci.com/ShanaScogin/QMRAswim.svg?branch=master)](https://travis-ci.com/ShanaScogin/QMRAswim)
-An R Package which models the range of probability of illnesses from swimming in a sewage impacted water body from by Katherine Crank and Kyle Bibby. 
+# QMRAswim [![Build Status](https://travis-ci.com/ShanaScogin/QMRAswim.svg?branch=master)](https://travis-ci.com/ShanaScogin/QMRAswim)
+An R Package which models the range of probability of illnesses from swimming in a sewage impacted water body from research by Katherine Crank and Kyle Bibby. 
 
 # Introduction
 `QMRAswim` is an R package which models the range of probability of illnesses from swimming in a sewage-impacted water body. The inputs include the measured concentration of the indicator organism and the desired reference values, and the output is the probability of illness from pathogens. The package can be used along with a Shiny web-based tool that being developed. 
@@ -36,4 +36,4 @@ Please check back for more examples.
 This package is in the beginning stages. We hope to be up and running by the end of July. Please check back for more.
 
 # Contact
-Please contact sscogin@nd.edu if you encounter any bugs or have questions or comments about the package. For questions about the substantive information about sewage-impacted water, please contact kcrank@nd.edu. 
+For questions about the substantive information about sewage-impacted water, please contact kcrank@nd.edu. Please contact sscogin@nd.edu if you encounter any bugs with the package. 

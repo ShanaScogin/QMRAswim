@@ -60,7 +60,7 @@ PathogenDose <- function(doseresp = "exp",
   if (path_sewage_dist == 'lunif'){
     Cp_Sew <- log(runif(count, min = p_alpha, max = p_beta))
   } else if (path_sewage_dist == 'lnorm'){
-    Cp_Sew<-rlnorm(count, p_alpha, p_beta)
+    Cp_Sew <- rlnorm(count, p_alpha, p_beta)
   }  else {
     stop("Invalid entry distribution, must be either 'lunif' or 'lnorm'")
   }
@@ -87,7 +87,7 @@ f2 <- function(a, b, N){ ##two parameter beta-poisson
 }
 
 f3 <- function(a, b, N){ ##hypergeometric from packageCharFun
-  1 - hypergeom1F1( - N, a, b)
+  1 - BAS::hypergeom1F1( - N, a, b)
 }
 
 ###Total probability of illness
