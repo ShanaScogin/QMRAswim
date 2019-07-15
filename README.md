@@ -1,4 +1,4 @@
-# QMRAswim
+# QMRAswim[![Build Status](https://travis-ci.com/ShanaScogin/QMRAswim.svg?branch=master)](https://travis-ci.com/ShanaScogin/QMRAswim)
 An R Package which models the range of probability of illnesses from swimming in a sewage impacted water body from by Katherine Crank and Kyle Bibby. 
 
 # Introduction
@@ -16,7 +16,7 @@ install.packages("devtools")
 Now we can install from GitHub with the following line:
 
 ```
-devtools::install_github("kcrank1/QMRAswim")
+devtools::install_github("ShanaScogin/QMRAswim")
 ```
 
 Once you have installed the package, you can access it by calling:
