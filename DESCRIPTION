@@ -1,5 +1,5 @@
 Package: QMRAswim
-Title: Model the Range of Probability of Illnesses from Swimming in a Sewage-Impacted Water Body
+Title: Model Illness Probability from Swimming in Sewage-Impacted Water
 Version: 0.0.1
 Authors@R: 
     c(person("Katherine", "Crank", email = "kcrank@nd.edu", role = c("aut")),
@@ -11,7 +11,8 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:
-    BAS
+    fAsianOptions,
+    ggplot2
 Suggests: 
     testthat
 RoxygenNote: 6.1.1

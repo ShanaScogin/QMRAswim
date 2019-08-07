@@ -86,8 +86,8 @@ f2 <- function(a, b, N){ ##two parameter beta-poisson
   1 - (1 + N / a) ^ - b
 }
 
-f3 <- function(a, b, N){ ##hypergeometric from packageCharFun
-  1 - BAS::hypergeometric1F1( - N, a, b)
+f3 <- function(a, b, N){
+  1 - fAsianOptions::kummerM( - N, a, b)
 }
 
 ###Total probability of illness

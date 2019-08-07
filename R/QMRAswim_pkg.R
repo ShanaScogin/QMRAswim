@@ -14,7 +14,7 @@ NULL
 #' @importFrom stats runif rlnorm
 NULL
 
-#' @importFrom BAS hypergeometric1F1
+#' @importFrom fAsianOptions kummerM
 NULL
 
 #> NULL
