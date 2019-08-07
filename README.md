@@ -33,7 +33,7 @@ This package has one main function. Please check back for more details.
 Please check back for more examples.
 
 # What's Happening
-This package is in the beginning stages. We hope to be up and running by the end of July. Please check back for more.
+This package is in the beginning stages. We hope to be up and running by the end of September. Please check back for more.
 
 # Contact
 For questions about the substantive information about sewage-impacted water, please contact kcrank@nd.edu. Please contact sscogin@nd.edu if you encounter any bugs with the package. 
