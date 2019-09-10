@@ -1,10 +1,8 @@
 # QMRAswim [![Build Status](https://travis-ci.com/ShanaScogin/QMRAswim.svg?branch=master)](https://travis-ci.com/ShanaScogin/QMRAswim)
-An R Package which models the range of probability of illnesses from swimming in a sewage impacted water body from research by Katherine Crank and Kyle Bibby. 
+An R Package which models the range of probability of illnesses from swimming in a sewage impacted water body from research by Katherine Crank and Kyle Bibby. The development of this package has currently been put on hold. If you are interested in contributing, please submit an issue to begin a conversation. 
 
 # Introduction
-`QMRAswim` is an R package which models the range of probability of illnesses from swimming in a sewage-impacted water body. The inputs include the measured concentration of the indicator organism and the desired reference values, and the output is the probability of illness from pathogens. The package can be used along with a Shiny web-based tool that being developed. 
-
-More references will be included in future developments of the package.
+`QMRAswim` is an R package which models the range of probability of illnesses from swimming in a sewage-impacted water body. The inputs include the measured concentration of the indicator organism and the desired reference values, and the output is the probability of illness from pathogens. 
 
 # Installing The Package
 Currently the package can be downloaded with the devtools package in R from GitHub. To do this, install devtools by calling:
@@ -33,7 +31,7 @@ This package has one main function. Please check back for more details.
 Please check back for more examples.
 
 # What's Happening
-This package is in the beginning stages. We hope to be up and running by the end of September. Please check back for more.
+This package is in the beginning stages and has currently been put on hold indefinitely
 
 # Contact
-For questions about the substantive information about sewage-impacted water, please contact kcrank@nd.edu. Please contact sscogin@nd.edu if you encounter any bugs with the package. 
+For any questions or comments, please submit an issue. 
